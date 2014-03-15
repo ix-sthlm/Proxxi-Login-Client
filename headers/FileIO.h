@@ -17,9 +17,9 @@ using std::ifstream;
 using std::ofstream;
 namespace FileIO
 {
-   bool fileExists(string name);
-   string* readConfig(string name);
-   void generateDefaultConfig(string name);
+   bool fileExists(const string name);
+   string* readConfig(const string name);
+   void generateDefaultConfig(const string name);
 }
 
 

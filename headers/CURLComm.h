@@ -1,10 +1,13 @@
 /***************************************************************
- * Name:      ProxxiLoginClient.h
- * Purpose:   Defines my CURL Application Library
+ * Name:      CURLComm.cpp
+ * Purpose:   A CURL Application library used for the "Kira_Login_Client_CPP_Edition"
  * Author:    Erik Welander (erik.welander@hotmail.com)
- * Version:   2013-11-30
+ * Version:   2014-03-09
  * Copyright: Erik Welander (https://www.facebook.com/erik.welander)
- * License:   Creative Commons "by-nc-nd"
+ * License:   GNU GPL
+ * Special thanks to: Zenwood (http://www.zedwood.com/article/cpp-libcurl-static-class)
+ * for having the best CURL implementation example around.
+ * This work is heavily influinced by you
  **************************************************************/
 
 #ifndef CURL_Comm_H
@@ -21,10 +24,10 @@
 #endif
 using std::string;
 namespace CURLComm {
-    bool postDataToWebServer(string s_url,
-                             string username_php_var, string username,
-                             string password_php_var, string password);
-    string saveDataFromWebServer(string s_url);
-    bool visitWebServer(string s_url);
+    string get(const string url);
+    bool post(const string url, const string postData);
+    string curlIt(const string url, const string postData);
+    //Used internally, do not call
+    int write_to_string(char *data, size_t size, size_t nmemb, string *buffer);
 };
 #endif //CURL_Comm.h

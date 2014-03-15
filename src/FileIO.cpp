@@ -9,7 +9,7 @@
 
 #include "../headers/FileIO.h"
 
-bool FileIO::fileExists(string name)
+bool FileIO::fileExists(const string name)
 {
     bool exist = false;
     ifstream fsConfigR(name.c_str());
@@ -24,7 +24,7 @@ bool FileIO::fileExists(string name)
     fsConfigR.close();
     return exist;
 }
-string* FileIO::readConfig(string name)
+string* FileIO::readConfig(const string name)
 {
     ifstream fsConfigR(name.c_str());
     string* arr = new string[2];
@@ -33,7 +33,7 @@ string* FileIO::readConfig(string name)
     fsConfigR.close();
     return arr;
 }
-void FileIO::generateDefaultConfig(string name)
+void FileIO::generateDefaultConfig(const string name)
 {
     ofstream fsConfigW (name.c_str());
     fsConfigW << "MountNetworkShares = 1\r\n";
